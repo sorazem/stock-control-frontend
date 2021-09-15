@@ -2,12 +2,14 @@
   <v-navigation-drawer app class="pa-4" color="#F1D5AF">
     <p style="font-weight: bold">Arcanine Stock Control</p>
     <v-list>
-      <v-list-item>
-        <v-list-item-icon>
-          <v-icon>mdi-archive</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>Estoque</v-list-item-title>
-      </v-list-item>
+      <router-link :to="'/'">
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>mdi-archive</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Estoque</v-list-item-title>
+        </v-list-item>
+      </router-link>
       <v-list-item>
         <v-list-item-icon>
           <v-icon>mdi-trending-up</v-icon>
@@ -36,3 +38,22 @@ export default {
   name: 'Navbar'
 }
 </script>
+
+<style scoped>
+  .v-list-item{
+    color: inherit !important;
+    background-color: inherit !important;
+    border-radius: 10px;
+  }
+
+ .v-application a{
+   text-decoration: none;
+   color: black;
+ }
+
+ .v-application .router-link-active, .v-application .router-link-exact-active{
+   background-color: #fcfcfc;
+   border-radius: 10px;
+   font-weight: bold;
+ }
+</style>
