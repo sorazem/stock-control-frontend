@@ -22,7 +22,7 @@
             </v-list-item-title>
           </v-col>
           <v-col>
-            <p>{{ item.quantity }}</p>
+            <p>{{ getItemOutQuantity(item.code) }}</p>
           </v-col>
           <v-col>
             <p>{{ item.quantity }}</p>
@@ -33,13 +33,24 @@
 </template>
 
 <script>
-import products from "@/assets/products"
 
 export default {
   name: 'Stock',
   computed:{
     products(){
-      return products;
+      return this.$store.state.products
+    },
+    stockTransactions(){
+      return this.$store.state.stockTransactions
+    }
+  },
+  methods:{
+    getItemOutQuantity(itemCode){
+      let quantities = this.stockTransactions.reduce( (sum, item) => {
+        if(item.product == itemCode) return sum += item.quantity
+      }, 0)
+      console.log(quantities)
+      return quantities? quantities : 0
     }
   }
 }
@@ -52,7 +63,7 @@ export default {
   }
 
   #item{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #CEC2B8;
     border-radius: 20px;
   }
 </style>
