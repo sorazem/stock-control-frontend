@@ -12,7 +12,7 @@
 
       <v-text-field
         v-model="price"
-        label="Valor unitário do produto"
+        label="Valor unitário do fornecedor"
         type="number"
         :rules="[v => !!v || 'Preencha o valor de venda']"
         required

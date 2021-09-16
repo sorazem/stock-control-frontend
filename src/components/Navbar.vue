@@ -35,6 +35,14 @@
           <v-list-item-title>Efetuar saída</v-list-item-title>
         </v-list-item>
       </router-link>
+      <router-link :to="'/adicionar-produto'">
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>mdi-plus</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Adicionar produto</v-list-item-title>
+        </v-list-item>
+      </router-link>
     </v-list>
   </v-navigation-drawer>
 </template>

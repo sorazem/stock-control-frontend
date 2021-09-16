@@ -40,7 +40,16 @@ const store = new Vuex.Store({
         price: state.products[index].price,
         quantity: payload.quantity
       })
+    },
 
+    newProduct(state, payload){
+      state.products.push({
+        code: payload.productCode,
+        desc: payload.desc,
+        type: payload.type,
+        price: payload.price,
+        quantity: 0
+      })
     }
   }
 })
