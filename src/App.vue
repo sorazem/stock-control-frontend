@@ -22,4 +22,8 @@ export default {
     padding: 0;
     margin: 0;
   }
+
+  h2{
+    color: #7F6F62;
+  }
 </style>
