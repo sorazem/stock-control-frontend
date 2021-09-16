@@ -20,6 +20,7 @@
             <v-col>
               <h4>Unidades disponíveis</h4>
             </v-col>
+            <v-col cols="1"></v-col>
           </v-row>
           <v-row id="item" v-for="item in getFilteredItems(tab)" :key="item.code" class="ma-4 mt-0">
             <v-col cols="6">
@@ -36,10 +37,34 @@
             <v-col>
               <p>{{ item.quantity }}</p>
             </v-col>
+            <v-col cols="1">
+              <v-icon @click="openConfirmDeleteSnackbar(item.code)">mdi-delete</v-icon>
+            </v-col>
           </v-row>
         </v-list>
       </v-tab-item>
     </v-tabs-items>
+    <v-snackbar v-model="confirmDelete" rounded centered app timeout="-1">
+      <!-- <div class="d-flex align-center justify-space-between">
+        <span>Tem certeza que deseja deletar esse item?</span>
+        <v-icon @click="alertSuccess=false">mdi-close</v-icon>
+      </div> -->
+      <p class="mb-8">Tem certeza que deseja deletar esse item?</p>
+      <v-btn
+        color="white"
+        class="elevation-1 black--text"
+        @click="deleteProduct"
+      >
+        Sim
+      </v-btn>
+      <v-btn
+        color="white"
+        class="elevation-1 black--text float-right"
+        @click="confirmDelete = false"
+      >
+        Não
+      </v-btn>
+    </v-snackbar>
   </section>
 </template>
 
@@ -50,7 +75,9 @@ export default {
   data(){
     return{
       tab: null,
-      filters: ['Tudo', 'Eletrônicos', 'Eletrodomésticos', 'Móveis']
+      confirmDelete: false,
+      filters: ['Tudo', 'Eletrônicos', 'Eletrodomésticos', 'Móveis'],
+      selectedProductCode: ''
     }
   },
   computed:{
@@ -81,6 +108,17 @@ export default {
 
     getFilteredItems(index){
       return this.filteredItems[index]
+    },
+
+    openConfirmDeleteSnackbar(itemCode){
+      this.selectedProductCode = itemCode
+      this.confirmDelete = true
+    },
+
+    deleteProduct(){
+      let index = this.products.findIndex( p => p.code === this.selectedProductCode)
+      this.$store.commit('deleteProduct', {index: index})
+      this.confirmDelete = false
     }
   }
 }
@@ -92,7 +130,11 @@ export default {
     border-radius: 20px;
   }
 
-  .v-select{
-    width: 200px;
+  .v-icon:hover{
+    cursor: pointer;
+  }
+
+  .v-snack p{
+    font-size: 18px;
   }
 </style>

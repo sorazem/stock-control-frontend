@@ -50,6 +50,10 @@ const store = new Vuex.Store({
         price: payload.price,
         quantity: 0
       })
+    },
+
+    deleteProduct(state, payload){
+      state.products.splice(payload.index, 1)
     }
   }
 })
