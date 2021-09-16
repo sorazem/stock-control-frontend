@@ -3,6 +3,7 @@ import Profit from "@/components/Profit"
 import ReceiveProduct from "@/components/ReceiveProduct"
 import ExitProduct from "@/components/ExitProduct"
 import NewProduct from "@/components/NewProduct"
+import EditProduct from "@/components/EditProduct"
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: '/adicionar-produto',
     name: 'ProdutoNovo',
     component: NewProduct
+  },
+  {
+    path: '/editar-produto',
+    name: 'EditarProduto',
+    component: EditProduct
   }
 ]
 

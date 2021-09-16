@@ -48,6 +48,14 @@
             <v-list-item-title>Adicionar produto</v-list-item-title>
           </v-list-item>
         </router-link>
+        <router-link :to="'/editar-produto'">
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-pencil</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Editar produto</v-list-item-title>
+          </v-list-item>
+        </router-link>
       </v-list>
     </v-navigation-drawer>
   </div>

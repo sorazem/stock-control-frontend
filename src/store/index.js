@@ -54,6 +54,15 @@ const store = new Vuex.Store({
 
     deleteProduct(state, payload){
       state.products.splice(payload.index, 1)
+    },
+
+    editProduct(state, payload){
+      let index = state.products.findIndex(
+        item => item.code === payload.productCode
+      )
+
+      state.products[index].desc = payload.desc
+      state.products[index].price = payload.price
     }
   }
 })
