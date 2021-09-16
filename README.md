@@ -1,24 +1,7 @@
-# stock-control
+# Snorlax Control Stock
 
-## Project setup
-```
-npm install
-```
+Neste projeto desenvolvi o frontend para um site que controla o estoque de produtos 📦 e mostra o lucro 📈 de acordo com os dados de entrada e saída de cada produto. Também é possível efetuar entrada e saída 🚚 de produtos cadastrados e adicionar, editar ou deletar um produto.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Para salvar os dados da aplicação e poder modificá-los pelo front, fiz uso de um gerenciador de estados 🗄️ chamado Vuex.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+O nome do projeto se chama Snorlax Control Stock porque decidi usar as cores desse pokémon para criar as páginas 😄
